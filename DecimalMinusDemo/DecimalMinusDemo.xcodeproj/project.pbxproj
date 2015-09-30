@@ -159,6 +159,8 @@
 		9E8B53EE1BB58D6B007E79E2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Jonathan Engelsma";
 				TargetAttributes = {
@@ -413,6 +415,7 @@
 				9E8B54171BB58D6B007E79E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9E8B54181BB58D6B007E79E2 /* Build configuration list for PBXNativeTarget "DecimalMinusDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +424,7 @@
 				9E8B541A1BB58D6B007E79E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

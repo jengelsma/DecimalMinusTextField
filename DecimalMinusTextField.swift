@@ -15,7 +15,7 @@ import UIKit
 */
 class DecimalMinusTextField: UITextField {
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -27,14 +27,14 @@ class DecimalMinusTextField: UITextField {
     
     private func getAccessoryButtons() -> UIView
     {
-        var view = UIView(frame: CGRectMake(0, 0, self.superview!.frame.size.width, 44))
+        let view = UIView(frame: CGRectMake(0, 0, self.superview!.frame.size.width, 44))
         view.backgroundColor = UIColor.lightGrayColor()
         
-        var minusButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
-        var doneButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        let minusButton = UIButton(type: UIButtonType.Custom)
+        let doneButton = UIButton(type: UIButtonType.Custom)
         minusButton.setTitle("-", forState: UIControlState.Normal)
         doneButton.setTitle("Done", forState: UIControlState.Normal)
-        var buttonWidth = view.frame.size.width/3;
+        let buttonWidth = view.frame.size.width/3;
         minusButton.frame = CGRectMake(0, 0, buttonWidth, 44);
         doneButton.frame = CGRectMake(view.frame.size.width - buttonWidth, 0, buttonWidth, 44);
         
@@ -49,9 +49,9 @@ class DecimalMinusTextField: UITextField {
     
     func minusTouchUpInside(sender: UIButton!) {
 
-        let text = self.text
-        if(count(text) > 0) {
-            var index: String.Index = advance(text.startIndex, 1)
+        let text = self.text!
+        if(text.characters.count > 0) {
+            let index: String.Index = text.startIndex.advancedBy(1)
             let firstChar = text.substringToIndex(index)
             if firstChar == "-" {
                 self.text = text.substringFromIndex(index)
