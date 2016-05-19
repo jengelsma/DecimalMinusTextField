@@ -38,8 +38,8 @@ class DecimalMinusTextField: UITextField {
         minusButton.frame = CGRectMake(0, 0, buttonWidth, 44);
         doneButton.frame = CGRectMake(view.frame.size.width - buttonWidth, 0, buttonWidth, 44);
         
-        minusButton.addTarget(self, action: "minusTouchUpInside:", forControlEvents: UIControlEvents.TouchUpInside)
-        doneButton.addTarget(self, action: "doneTouchUpInside:", forControlEvents: UIControlEvents.TouchUpInside)
+        minusButton.addTarget(self, action: #selector(DecimalMinusTextField.minusTouchUpInside(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        doneButton.addTarget(self, action: #selector(DecimalMinusTextField.doneTouchUpInside(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         view.addSubview(minusButton)
         view.addSubview(doneButton)
