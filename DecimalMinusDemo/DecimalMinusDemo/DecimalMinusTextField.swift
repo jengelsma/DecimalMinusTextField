@@ -21,25 +21,25 @@ class DecimalMinusTextField: UITextField {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.keyboardType = UIKeyboardType.DecimalPad
+        self.keyboardType = UIKeyboardType.decimalPad
 
     }
     
-    private func getAccessoryButtons() -> UIView
+    fileprivate func getAccessoryButtons() -> UIView
     {
-        let view = UIView(frame: CGRectMake(0, 0, self.superview!.frame.size.width, 44))
-        view.backgroundColor = UIColor.lightGrayColor()
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.superview!.frame.size.width, height: 44))
+        view.backgroundColor = UIColor.lightGray
         
-        let minusButton = UIButton(type: UIButtonType.Custom)
-        let doneButton = UIButton(type: UIButtonType.Custom)
-        minusButton.setTitle("-", forState: UIControlState.Normal)
-        doneButton.setTitle("Done", forState: UIControlState.Normal)
+        let minusButton = UIButton(type: UIButtonType.custom)
+        let doneButton = UIButton(type: UIButtonType.custom)
+        minusButton.setTitle("-", for: UIControlState())
+        doneButton.setTitle("Done", for: UIControlState())
         let buttonWidth = view.frame.size.width/3;
-        minusButton.frame = CGRectMake(0, 0, buttonWidth, 44);
-        doneButton.frame = CGRectMake(view.frame.size.width - buttonWidth, 0, buttonWidth, 44);
+        minusButton.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: 44);
+        doneButton.frame = CGRect(x: view.frame.size.width - buttonWidth, y: 0, width: buttonWidth, height: 44);
         
-        minusButton.addTarget(self, action: #selector(DecimalMinusTextField.minusTouchUpInside(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        doneButton.addTarget(self, action: #selector(DecimalMinusTextField.doneTouchUpInside(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        minusButton.addTarget(self, action: #selector(DecimalMinusTextField.minusTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
+        doneButton.addTarget(self, action: #selector(DecimalMinusTextField.doneTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
         
         view.addSubview(minusButton)
         view.addSubview(doneButton)
@@ -47,21 +47,21 @@ class DecimalMinusTextField: UITextField {
         return view;
     }
     
-    func minusTouchUpInside(sender: UIButton!) {
+    func minusTouchUpInside(_ sender: UIButton!) {
 
         let text = self.text!
         if(text.characters.count > 0) {
-            let index: String.Index = text.startIndex.advancedBy(1)
-            let firstChar = text.substringToIndex(index)
+            let index: String.Index = text.characters.index(text.startIndex, offsetBy: 1)
+            let firstChar = text.substring(to: index)
             if firstChar == "-" {
-                self.text = text.substringFromIndex(index)
+                self.text = text.substring(from: index)
             } else {
                 self.text = "-" + text
             }
         }
     }
     
-    func doneTouchUpInside(sender: UIButton!) {
+    func doneTouchUpInside(_ sender: UIButton!) {
         self.resignFirstResponder();
         
     }
