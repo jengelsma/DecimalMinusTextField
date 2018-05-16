@@ -47,21 +47,21 @@ class DecimalMinusTextField: UITextField {
         return view;
     }
     
-    func minusTouchUpInside(_ sender: UIButton!) {
+    @objc func minusTouchUpInside(_ sender: UIButton!) {
 
         let text = self.text!
-        if(text.characters.count > 0) {
-            let index: String.Index = text.characters.index(text.startIndex, offsetBy: 1)
-            let firstChar = text.substring(to: index)
+        if(text.count > 0) {
+            let index: String.Index = text.index(text.startIndex, offsetBy: 1)
+            let firstChar = text[..<index]
             if firstChar == "-" {
-                self.text = text.substring(from: index)
+                self.text = String(text[index...])
             } else {
                 self.text = "-" + text
             }
         }
     }
     
-    func doneTouchUpInside(_ sender: UIButton!) {
+    @objc func doneTouchUpInside(_ sender: UIButton!) {
         self.resignFirstResponder();
         
     }
