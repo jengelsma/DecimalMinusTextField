@@ -35,14 +35,26 @@ class DecimalMinusTextField: UITextField {
         minusButton.setTitle("-", for: UIControlState())
         doneButton.setTitle("Done", for: UIControlState())
         let buttonWidth = view.frame.size.width/3;
-        minusButton.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: 44);
-        doneButton.frame = CGRect(x: view.frame.size.width - buttonWidth, y: 0, width: buttonWidth, height: 44);
-        
-        minusButton.addTarget(self, action: #selector(DecimalMinusTextField.minusTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
-        doneButton.addTarget(self, action: #selector(DecimalMinusTextField.doneTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
         
         view.addSubview(minusButton)
         view.addSubview(doneButton)
+        
+        minusButton.translatesAutoresizingMaskIntoConstraints = false
+        minusButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        minusButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        minusButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        minusButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        minusButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        doneButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        doneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        doneButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        doneButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        minusButton.addTarget(self, action: #selector(DecimalMinusTextField.minusTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
+        doneButton.addTarget(self, action: #selector(DecimalMinusTextField.doneTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
         
         return view;
     }
@@ -70,6 +82,4 @@ class DecimalMinusTextField: UITextField {
         super.layoutSubviews()
         self.inputAccessoryView = getAccessoryButtons()
     }
-
-
 }
