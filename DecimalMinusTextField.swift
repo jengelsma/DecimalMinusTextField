@@ -34,7 +34,7 @@ class DecimalMinusTextField: UITextField {
         let doneButton = UIButton(type: UIButtonType.custom)
         minusButton.setTitle("-", for: UIControlState())
         doneButton.setTitle("Done", for: UIControlState())
-        let buttonWidth = view.frame.size.width/3;
+        let buttonWidth = view.frame.size.width/3
         
         view.addSubview(minusButton)
         view.addSubview(doneButton)
@@ -56,7 +56,7 @@ class DecimalMinusTextField: UITextField {
         minusButton.addTarget(self, action: #selector(DecimalMinusTextField.minusTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
         doneButton.addTarget(self, action: #selector(DecimalMinusTextField.doneTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
         
-        return view;
+        return view
     }
     
     @objc func minusTouchUpInside(_ sender: UIButton!) {
@@ -74,7 +74,7 @@ class DecimalMinusTextField: UITextField {
     }
     
     @objc func doneTouchUpInside(_ sender: UIButton!) {
-        self.resignFirstResponder();
+        self.resignFirstResponder()
         
     }
     
