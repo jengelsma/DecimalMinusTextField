@@ -30,16 +30,16 @@ class DecimalMinusTextField: UITextField {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.superview!.frame.size.width, height: 44))
         view.backgroundColor = UIColor.lightGray
         
-        let minusButton = UIButton(type: UIButtonType.custom)
-        let doneButton = UIButton(type: UIButtonType.custom)
-        minusButton.setTitle("-", for: UIControlState())
-        doneButton.setTitle("Done", for: UIControlState())
+        let minusButton = UIButton(type: UIButton.ButtonType.custom)
+        let doneButton = UIButton(type: UIButton.ButtonType.custom)
+        minusButton.setTitle("-", for: UIControl.State())
+        doneButton.setTitle("Done", for: UIControl.State())
         let buttonWidth = view.frame.size.width/3;
         minusButton.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: 44);
         doneButton.frame = CGRect(x: view.frame.size.width - buttonWidth, y: 0, width: buttonWidth, height: 44);
         
-        minusButton.addTarget(self, action: #selector(DecimalMinusTextField.minusTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
-        doneButton.addTarget(self, action: #selector(DecimalMinusTextField.doneTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
+        minusButton.addTarget(self, action: #selector(DecimalMinusTextField.minusTouchUpInside(_:)), for: UIControl.Event.touchUpInside)
+        doneButton.addTarget(self, action: #selector(DecimalMinusTextField.doneTouchUpInside(_:)), for: UIControl.Event.touchUpInside)
         
         view.addSubview(minusButton)
         view.addSubview(doneButton)
