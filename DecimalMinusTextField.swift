@@ -44,24 +44,7 @@ class DecimalMinusTextField: UITextField {
         view.addSubview(minusButton)
         view.addSubview(doneButton)
         
-        minusButton.translatesAutoresizingMaskIntoConstraints = false
-        minusButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        minusButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
-        minusButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        minusButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        minusButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        doneButton.translatesAutoresizingMaskIntoConstraints = false
-        doneButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        doneButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
-        doneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        doneButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        doneButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        minusButton.addTarget(self, action: #selector(DecimalMinusTextField.minusTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
-        doneButton.addTarget(self, action: #selector(DecimalMinusTextField.doneTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
-        
-        return view
+        return view;
     }
     
     @objc func minusTouchUpInside(_ sender: UIButton!) {
@@ -79,7 +62,7 @@ class DecimalMinusTextField: UITextField {
     }
     
     @objc func doneTouchUpInside(_ sender: UIButton!) {
-        self.resignFirstResponder()
+        self.resignFirstResponder();
         
     }
     
@@ -87,4 +70,6 @@ class DecimalMinusTextField: UITextField {
         super.layoutSubviews()
         self.inputAccessoryView = getAccessoryButtons()
     }
+
+
 }
